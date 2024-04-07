@@ -1,0 +1,27 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color orange
+color white
+color whiteop
+drawable astronaut
+drawable cosmoman
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id ast
+id b1
+id b2
+id cosmos_back
+id editText
+layout activity_main
+layout activity_splash
+mipmap ic_launcher
+mipmap ic_launcher_round
+raw cosmos_video
+raw rocket
+string app_name
+style Base.Theme.CosmoMessage
+style Base.Theme.Splash
+style Theme.CosmoMessage
+xml backup_rules
+xml data_extraction_rules
