@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="90dp"
+        >
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+           android:background="#ffff00 "
+            android:padding="11dp"
+            >
+            <ImageView
+                android:id="@+id/image_card"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/divan_krovat_spark"
+                android:layout_gravity="center_horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp">
+                <TextView
+                    android:id="@+id/title_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Диваны Итальские "
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/price_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4653"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="38dp"/>
+                    <TextView
+                        android:id="@+id/icon_dollars"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/description_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Диван раскладной,
+                     производство Германии, размеры длина: 2.40 м
+                     высота: 1.45 ширина1: 1.6м    ширина2: 3.2м,
+                      цвет Марроко "
+                    android:textSize="20sp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="9dp"
+                    android:visibility="gone"
+                    android:textAlignment="center"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btn_done"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="18dp"
+                    android:background="#FF8000"
+                    android:contentDescription="more"
+                    android:src="@drawable/baseline_double_arrow_24" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.appcompat.widget.LinearLayoutCompat>

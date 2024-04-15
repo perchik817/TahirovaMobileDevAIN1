@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.home.HomeFragment"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+   <com.airbnb.lottie.LottieAnimationView
+       android:id="@+id/lotty_sale"
+       android:layout_width="match_parent"
+       android:layout_height="240dp"
+       android:layout_marginTop="18dp"
+       app:lottie_autoPlay="true"
+      />
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/rv_catalog_category"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+       tools:listitem="@layout/item_category"
+       android:layout_marginTop="50dp"/>
+
+   <androidx.cardview.widget.CardView
+       android:id="@+id/sale_card_view"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:cardCornerRadius="28dp"
+       android:layout_marginTop="18dp"
+       android:layout_gravity="center_horizontal"
+      >
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:background="#8B00FF"
+         >
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="мега скидки %"
+             android:textStyle="bold"
+             android:textSize="40sp"
+             android:textColor="#dfb941"
+             android:gravity="center_vertical"
+             android:layout_margin="10dp"
+
+             />
+         <ImageView
+             android:layout_width="22dp"
+             android:layout_height="22dp"
+             android:src="@drawable/arrow_down_down"
+             android:layout_gravity="center_vertical"
+             android:background="#E4E7E8"
+             android:layout_margin="10dp"/>
+      </LinearLayout>
+   </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+</LinearLayout>
