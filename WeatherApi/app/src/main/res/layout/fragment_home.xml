@@ -55,7 +55,7 @@
         android:layout_marginBottom="170dp"
         android:layout_above="@+id/cardView"
         android:layout_alignParentTop="true"
-        android:src="@raw/rain2"
+        android:src="@raw/rain"
         android:visibility="visible"
         />
 
@@ -68,7 +68,7 @@
         android:layout_marginBottom="170dp"
         android:layout_above="@+id/cardView"
         android:layout_alignParentTop="true"
-        android:src="@raw/snow2"
+        android:src="@raw/snow1"
         android:visibility="visible"
         />
 
@@ -84,9 +84,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="279dp"
         android:layout_below="@+id/blueSky"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-19dp"
         android:padding="10dp"
         app:cardCornerRadius="26dp">
 
@@ -95,29 +95,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/GardensC_03_1"
-            android:textColor="@color/midnight_blue"/>
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/gardens"
+            android:textColor="@color/midnight_blue" />
 
         <TextView
             android:id="@+id/cityName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:textColor="@color/deep_sky_blue"
-            android:fontFamily="@font/GardensC_03_1"
             android:layout_marginTop="15dp"
             android:layout_marginRight="20dp"
+            android:fontFamily="@font/gardens"
             android:text="Name of City"
-            android:textSize="16sp" />
+            android:textColor="@color/deep_sky_blue"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="40dp"
-            android:padding="8dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="90dp"
@@ -128,7 +128,7 @@
                     android:id="@+id/humidity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="20%"
                     android:textAlignment="center"
                     android:textColor="@color/dodger_blue"
@@ -137,7 +137,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Humidity"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -154,7 +154,7 @@
                     android:id="@+id/pressure"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="1mBar"
                     android:textAlignment="center"
                     android:textColor="@color/cerulean_blue"
@@ -163,7 +163,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Pressure"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -178,7 +178,7 @@
                     android:id="@+id/wind"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="5 m/s"
                     android:textAlignment="center"
                     android:textColor="@color/dodger_blue"
@@ -187,7 +187,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Wind"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -212,7 +212,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="It is sunny"
                     android:textSize="18sp" />
 
@@ -221,7 +221,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="28dp"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="It is raining"
                     android:textSize="14sp"
                     android:visibility="visible" />
@@ -234,18 +234,18 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="50dp"
-                android:fontFamily="@font/GardensC_03_1"
+                android:fontFamily="@font/gardens"
                 android:text="17°C"
                 android:textColor="@color/black"
                 android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/tempMaxMin"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
-                android:fontFamily="@font/GardensC_03_1"
+                android:layout_marginLeft="25dp"
+                android:fontFamily="@font/gardens"
                 android:text="17°C↑\n11°C↓"
                 android:textSize="18sp" />
 
@@ -254,8 +254,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:paddingStart="22dp"
-            android:layout_marginTop="200dp">
+            android:layout_marginTop="200dp"
+            android:paddingStart="22dp">
 
             <LinearLayout
                 android:layout_width="80dp"
@@ -267,7 +267,7 @@
                     android:id="@+id/sunrise"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="5:05 AM"
                     android:textAlignment="center"
                     android:textColor="@color/gold"
@@ -276,7 +276,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Sunrise"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -285,16 +285,16 @@
             <LinearLayout
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginLeft="60dp"
                 android:layout_marginRight="50dp"
-                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/sunset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="8:17 PM"
                     android:textAlignment="center"
                     android:textColor="@color/gold"
@@ -303,7 +303,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Sunset"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -319,16 +319,16 @@
                     android:id="@+id/cloud"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="50%"
                     android:textAlignment="center"
                     android:textColor="@color/corn_flower_blue"
-                    android:textSize="12sp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/GardensC_03_1"
+                    android:fontFamily="@font/gardens"
                     android:text="Cloud"
                     android:textAlignment="center"
                     android:textSize="18sp" />
@@ -340,11 +340,11 @@
             android:id="@+id/time_zone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="20dp"
+
             android:layout_marginBottom="60dp"
+            android:fontFamily="@font/gardens"
             android:text="timezone"
-            android:fontFamily="@font/GardensC_03_1"
             android:textColor="@color/deep_sky_blue"
             android:visibility="visible" />
     </androidx.cardview.widget.CardView>
@@ -361,16 +361,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/deep_sky_blue">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/gardens"
                 android:paddingTop="8dp"
                 android:text="Slide up"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:fontFamily="@font/GardensC_03_1"/>
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -387,9 +388,9 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:hint="Enter city's name:"
-                android:textColor="@color/white"
+                android:textColor="@color/dodger_blue"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/GardensC_03_1"/>
+                android:fontFamily="@font/gardens"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/search"
@@ -397,7 +398,7 @@
                 android:layout_height="wrap_content"
                 android:text="Show me"
                 android:background="@color/dodger_blue"
-                android:fontFamily="@font/GardensC_03_1"
+                android:fontFamily="@font/gardens"
                 android:layout_marginBottom="20dp"/>
         </LinearLayout>
 
