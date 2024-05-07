@@ -42,15 +42,15 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        binding.rainLotty.setAnimation(R.raw.rain);
+        binding.rainLotty.setAnimation(R.raw.rain2);
         binding.rainLotty.setRepeatCount(LottieDrawable.INFINITE);
         binding.rainLotty.playAnimation();
 
-        binding.sunLotty.setAnimation(R.raw.sun);
+        binding.sunLotty.setAnimation(R.raw.sun3);
         binding.sunLotty.setRepeatCount(LottieDrawable.INFINITE);
         binding.sunLotty.playAnimation();
 
-        binding.snowLotty.setAnimation(R.raw.snow1);
+        binding.snowLotty.setAnimation(R.raw.snow2);
         binding.snowLotty.setRepeatCount(LottieDrawable.INFINITE);
         binding.snowLotty.playAnimation();
 
@@ -192,7 +192,7 @@ public class HomeFragment extends Fragment {
     public void setCondition() {
         if (temperature >= 25 && temperature <= 50) {
             binding.blueSky.setVisibility(View.VISIBLE);
-            binding.condition.setText("boiling");
+            binding.condition.setText("scorching");
             dryWeather();
             // Hide rain animation and "it may rain" status
             binding.rainLotty.setVisibility(View.INVISIBLE);
@@ -214,7 +214,7 @@ public class HomeFragment extends Fragment {
             rainMonitoring();
         } else if (temperature < 7) {
             setNoHotWeather();
-            binding.condition.setText("too \nfrigid");
+            binding.condition.setText("freezing");
             snowMonitoring();
         }
     }
@@ -272,7 +272,7 @@ public class HomeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     private void isMaySnow() {
         binding.isRaining.setVisibility(View.VISIBLE);
-        binding.isRaining.setText("It may \nsnow");
+        binding.isRaining.setText("It may snow");
         binding.snowLotty.setVisibility(View.VISIBLE);
         binding.sunLotty.setVisibility(View.INVISIBLE);
         binding.badWeatherSky.setVisibility(View.VISIBLE);
@@ -281,7 +281,7 @@ public class HomeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     private void isMayRain() {
         binding.isRaining.setVisibility(View.VISIBLE);
-        binding.isRaining.setText("It may \nrain");
+        binding.isRaining.setText("It may rain");
         binding.rainLotty.setVisibility(View.VISIBLE);
         binding.badWeatherSky.setVisibility(View.VISIBLE);
         binding.sunLotty.setVisibility(View.INVISIBLE);

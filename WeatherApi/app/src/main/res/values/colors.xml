@@ -16,4 +16,10 @@
     <color name="deep_sky_blue">#00BFFF</color>
     <color name="dodger_blue">#1E90FF</color>
     <color name="gold">#FFD700</color>
+
+    <color name="tan">#D2B48C</color>
+    <color name="haski">#6F7302</color>
+    <color name="brown">#403C2C</color>
+    <color name="dark_creme">#735D5D</color>
+    <color name="white_smoke">#F5F5F5</color>
 </resources>
