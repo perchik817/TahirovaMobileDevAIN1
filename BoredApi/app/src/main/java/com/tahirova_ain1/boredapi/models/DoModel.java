@@ -1,4 +1,4 @@
-package com.tahirova_ain1.boredapi.remotedata;
+package com.tahirova_ain1.boredapi.models;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -59,5 +59,13 @@ public class DoModel {
 
     public void setParticipants(String participants) {
         this.participants = participants;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

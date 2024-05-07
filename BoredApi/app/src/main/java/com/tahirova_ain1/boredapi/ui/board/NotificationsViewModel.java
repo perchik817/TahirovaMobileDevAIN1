@@ -1,4 +1,4 @@
-package com.tahirova_ain1.boredapi.ui.notifications;
+package com.tahirova_ain1.boredapi.ui.board;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

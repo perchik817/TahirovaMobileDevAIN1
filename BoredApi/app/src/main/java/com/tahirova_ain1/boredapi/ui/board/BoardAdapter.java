@@ -1,4 +1,4 @@
-package com.tahirova_ain1.boredapi.ui.notifications;
+package com.tahirova_ain1.boredapi.ui.board;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -17,14 +17,15 @@ import com.tahirova_ain1.boredapi.databinding.ItemBoardBinding;
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> {
     ItemBoardBinding binding;
     NavController navController;
-    private  int[] images = new int[]{R.drawable.firstEcology,
-            R.drawable.people,
-            R.drawable.hobby_one};
+    private  int[] images = new int[]{
+            R.drawable.for_world,
+            R.drawable.for_earth,
+            R.drawable.trophy};
 
     private  String[] titles = new String[]{
-            "what have you done for the world? ",
-            "what have you done for the ecology? ",
-            "what have you done for yourself?"};
+            "What have you done for the world? ",
+            "What have you done for the ecology? ",
+            "What have you done for yourself?"};
     @NonNull
     @Override
     public BoardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -54,13 +55,13 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
             if(position==titles.length-1){
                 binding.btnStart.setVisibility(View.VISIBLE);
             }else {
-                binding.btnStart.setVisibility(View.INVISIBLE);
+                binding.btnStart.setVisibility(View.VISIBLE);
             }
             binding.btnStart.setOnClickListener(v->{
                 new Prefs((Activity) itemView.getContext()).saveBoardState();
 
                 navController = Navigation.findNavController((Activity) itemView.getContext(), R.id.nav_host_fragment_activity_main);
-                navController.navigate(R.id.action_navigation_board_to_navigation_home);
+                navController.navigate(R.id.action_navigation_notifications_to_navigation_home);
             });
         }
     }

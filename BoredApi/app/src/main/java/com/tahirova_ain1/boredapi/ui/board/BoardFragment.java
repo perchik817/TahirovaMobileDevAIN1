@@ -1,16 +1,15 @@
-package com.tahirova_ain1.boredapi.ui.notifications;
+package com.tahirova_ain1.boredapi.ui.board;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.tahirova_ain1.boredapi.Prefs;
@@ -50,6 +49,7 @@ public class BoardFragment extends Fragment {
         return root;
     }
 
+    @SuppressLint("ResourceAsColor")
     private void changeColor() {
 
         if(binding.viewPager2.getCurrentItem() == 0){
@@ -77,7 +77,7 @@ public class BoardFragment extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                requireActivity().finish();
+                requireActivity().fileList();
             }
         });
     }

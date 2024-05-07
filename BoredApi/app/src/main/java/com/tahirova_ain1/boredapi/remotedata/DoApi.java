@@ -1,9 +1,8 @@
-package com.tahirova_ain1.boredapi.models;
+package com.tahirova_ain1.boredapi.remotedata;
 
-import com.tahirova_ain1.boredapi.remotedata.DoModel;
+import com.tahirova_ain1.boredapi.models.DoModel;
 
 import retrofit2.Call;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 

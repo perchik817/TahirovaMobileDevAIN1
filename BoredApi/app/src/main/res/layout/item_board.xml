@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="6dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageBoard"
+        android:layout_width="350dp"
+        android:layout_height="380dp"
+        android:src="@color/turquoise"/>
+    <TextView
+        android:id="@+id/textBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Title"
+        android:textSize="35sp"
+        android:textColor="@color/purple"
+        android:fontFamily="@font/caviar_dreams_bold"
+        android:textAlignment="center"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStart"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        app:cornerRadius="22dp"
+        android:text="Start"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_orange"
+        android:visibility="invisible"
+        android:fontFamily="@font/caviar_dreams_bold"/>
+</LinearLayout>

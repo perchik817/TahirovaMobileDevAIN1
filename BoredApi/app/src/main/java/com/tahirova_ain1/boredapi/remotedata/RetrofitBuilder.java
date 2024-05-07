@@ -1,6 +1,7 @@
-package com.tahirova_ain1.boredapi;
+package com.tahirova_ain1.boredapi.remotedata;
 
-import com.tahirova_ain1.boredapi.models.DoApi;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitBuilder {
     private static DoApi instance;
@@ -9,8 +10,17 @@ public class RetrofitBuilder {
     }
     public static DoApi getInstance(){
         if (instance == null){
-            instance = getInstance();
+            instance = initInstance();
         }
         return instance;
+    }
+
+    private static DoApi initInstance(){
+        return new Retrofit
+                .Builder()
+                .baseUrl("https://www.boredapi.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(DoApi.class);
     }
 }
