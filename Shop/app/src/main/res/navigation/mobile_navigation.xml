@@ -9,17 +9,45 @@
         android:id="@+id/navigation_home"
         android:name="com.tahirova_ain1.shop.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_basket"
+            app:destination="@id/navigation_basket" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_description"
+            app:destination="@id/navigation_description" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.tahirova_ain1.shop.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_basket"
+        android:name="com.tahirova_ain1.shop.ui.dashboard.BasketFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_basket" >
+        <action
+            android:id="@+id/action_navigation_basket_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_basket_to_navigation_payment"
+            app:destination="@id/navigation_payment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.tahirova_ain1.shop.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_description"
+        android:name="com.tahirova_ain1.shop.ui.notifications.DescriptionFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_description_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_payment"
+        android:name="com.tahirova_ain1.shop.payment.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_navigation_payment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

@@ -1,2 +1,5 @@
-package com.tahirova_ain1.shop.constant;public class ConstatntApi {
+package com.tahirova_ain1.shop.constant;
+
+public class ConstantApi {
+    public static final String BASE_URL = "https://fakestoreapi.com/";
 }

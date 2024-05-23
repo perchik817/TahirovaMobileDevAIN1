@@ -1,4 +1,4 @@
-package com.tahirova_ain1.shop.ui.notifications;
+package com.tahirova_ain1.shops.ui.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.tahirova_ain1.shop.databinding.FragmentNotificationsBinding;
+import com.tahirova_ain1.shops.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 

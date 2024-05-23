@@ -1,4 +1,4 @@
-package com.tahirova_ain1.shop.ui.dashboard;
+package com.tahirova_ain1.shops.ui.dashboard;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.tahirova_ain1.shop.databinding.FragmentDashboardBinding;
+import com.tahirova_ain1.shops.databinding.FragmentDashboardBinding;
 
 public class DashboardFragment extends Fragment {
 
