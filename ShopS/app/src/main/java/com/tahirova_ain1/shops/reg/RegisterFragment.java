@@ -1,66 +1,101 @@
 package com.tahirova_ain1.shops.reg;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.tahirova_ain1.shops.R;
+import com.tahirova_ain1.shops.databinding.FragmentRegisterBinding;
+import com.tahirova_ain1.shops.models.User;
+import com.tahirova_ain1.shops.remotedata.RetrofitClient;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RegisterFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public RegisterFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegisterFragment newInstance(String param1, String param2) {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FragmentRegisterBinding binding;
+    User newUser;
+    NavController navController;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        binding = FragmentRegisterBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+        return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        binding.btnReg.setOnClickListener(v -> {
+            binding.progressBar.setVisibility(View.VISIBLE);
+            if(!isEmptyEditTextReg()) registerToTable();
+        });
+        binding.tvLoginNow.setOnClickListener(v1 -> {
+            navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
+            navController.navigate(R.id.action_navigation_registr_to_navigation_login);
+        });
+    }
+
+    private void registerToTable() {
+        newUser = new User(binding.nameUser.getText().toString(),
+                binding.email.getText().toString(),
+                binding.passwd.getText().toString());
+        Call<User> userCall = RetrofitClient.getInstance().getApi().registrationNewUser(newUser);
+        userCall.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if(response.isSuccessful() && response.body() != null){
+                    binding.progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(requireActivity(), "Registration was successful", Toast.LENGTH_SHORT).show();
+                    SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor prefLoginEdit = preferences.edit();
+                    prefLoginEdit.putBoolean("registration", true);
+                    prefLoginEdit.commit();
+                } else {
+                    Log.e("fail", "fail");
+                    Toast.makeText(requireActivity(), "Registration is not available", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable throwable) {
+                Log.e("failure", "reg is failed");
+                Toast.makeText(requireActivity(), "Reg is failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private boolean isEmptyEditTextReg() {
+        if(binding.nameUser.getText().toString().isEmpty() || binding.email.getText().toString().isEmpty() || binding.passwd.getText().toString().isEmpty()){
+            Toast toast = Toast.makeText(getActivity(), "Fill all field", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+            return  true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }
+

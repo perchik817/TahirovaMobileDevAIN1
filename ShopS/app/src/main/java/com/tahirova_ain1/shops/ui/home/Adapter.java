@@ -59,26 +59,26 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
             Glide.with(context)
                     .load(list.get(getAdapterPosition()).getImage())
-                    .placeholder(R.drawable.place_holder_my)
+                    .placeholder(R.drawable.placeholder_image)
                     .error(R.drawable.ic_launcher_background)
                     .into(binding.imageCard);
 
             binding.btnZoom.setOnClickListener(v -> {
-                selected_list.add(modelM);
+                selectedList.add(modelM);
                 Bundle bundle = new Bundle();
-                bundle.putParcelableArrayList("see more", selected_list);
+                bundle.putParcelableArrayList("see more", selectedList);
                 navController = Navigation.findNavController((Activity) itemView.getContext(), R.id.nav_host_fragment_activity_main);
                 navController.navigate(R.id.navigation_description, bundle);
                 Log.e("TAG", "pass data ! !");
             });
 
             itemView.setOnClickListener(v1 -> {
-                if (binding.tovarFavoriteCheck.getVisibility() == View.INVISIBLE) {
-                    binding.tovarFavoriteCheck.setVisibility(View.VISIBLE);
-                    selected_intoBasketList.add(modelM);
+                if (binding.itemFavCheck.getVisibility() == View.INVISIBLE) {
+                    binding.itemFavCheck.setVisibility(View.VISIBLE);
+                    selectedList.add(modelM);
                 } else {
-                    binding.tovarFavoriteCheck.setVisibility(View.INVISIBLE);
-                    selected_intoBasketList.remove(modelM);
+                    binding.itemFavCheck.setVisibility(View.INVISIBLE);
+                    selectedList.remove(modelM);
                 }
             });
         }

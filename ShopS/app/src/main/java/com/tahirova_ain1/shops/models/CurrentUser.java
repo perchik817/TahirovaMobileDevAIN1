@@ -1,11 +1,20 @@
-package com.tahirova_ain1.shop.models;
+package com.tahirova_ain1.shops.models;
+
 
 public class CurrentUser {
-    private String username;
+    private String email;
     private String password;
 
-    public CurrentUser(String username, String password) {
-        this.username = username;
+    @Override
+    public String toString() {
+        return "CurrentUser{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public CurrentUser(String email, String password) {
+        this.email = email;
         this.password = password;
     }
-}
+    }

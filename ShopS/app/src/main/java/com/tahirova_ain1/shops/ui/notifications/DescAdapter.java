@@ -1,25 +1,20 @@
-package com.example.shops.ui.notifications;
+package com.tahirova_ain1.shops.ui.notifications;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.shops.databinding.ItemDescBinding;
-import com.example.shops.databinding.ItemProductBinding;
-import com.example.shops.models.ModelM;
+import com.tahirova_ain1.shops.models.ModelM;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
-    ItemDescBinding binding;
+     binding;
     Context context;
     List<ModelM> listD = new ArrayList<>();
 
@@ -34,13 +29,13 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public DescAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         binding = ItemDescBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DescAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.onBind(listD.get(position));
     }
 

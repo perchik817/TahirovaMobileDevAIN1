@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.tahirova_ain1.shops.databinding.FragmentNotificationsBinding;
 
-public class NotificationsFragment extends Fragment {
+public class DescriptionFragment extends Fragment {
 
     private FragmentNotificationsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        DescriptionViewModel notificationsViewModel =
+                new ViewModelProvider(this).get(DescriptionViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

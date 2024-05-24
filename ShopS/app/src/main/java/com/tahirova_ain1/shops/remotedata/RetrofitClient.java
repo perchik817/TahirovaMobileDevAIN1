@@ -1,6 +1,6 @@
-package com.tahirova_ain1.shop.remoteData;
+package com.tahirova_ain1.shops.remotedata;
 
-import com.tahirova_ain1.shop.constant.ConstantApi;
+import com.tahirova_ain1.shops.constant.ConstantApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
