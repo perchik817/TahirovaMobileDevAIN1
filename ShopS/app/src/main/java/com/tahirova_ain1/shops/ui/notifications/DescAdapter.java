@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide;
 import com.tahirova_ain1.shops.databinding.ItemDescriptionBinding;
 import com.tahirova_ain1.shops.models.ModelM;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {

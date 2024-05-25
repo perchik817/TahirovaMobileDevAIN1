@@ -15,28 +15,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.tahirova_ain1.shops.R;
-import com.tahirova_ain1.shops.databinding.ProductItemBinding;
+import com.tahirova_ain1.shops.databinding.ItemOrderBinding;
 import com.tahirova_ain1.shops.models.ModelM;
+import com.tahirova_ain1.shops.models.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
-    ProductItemBinding binding;
+    ItemOrderBinding binding;
     Context context;
-    List<ModelM> list;
+    List<Order> list;
     NavController navController;
-    ArrayList<ModelM> descriptionList = new ArrayList<>();
-    ArrayList<ModelM> selectedList = new ArrayList<>();
+    ArrayList<Order> descriptionList = new ArrayList<>();
+    ArrayList<Order> selectedList = new ArrayList<>();
 
-    public void setList(List<ModelM> list) {
+    public void setList(List<Order> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = ProductItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        binding = ItemOrderBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
@@ -51,16 +52,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ProductItemBinding binding;
-        public ViewHolder(@NonNull ProductItemBinding itemView) {
+        ItemOrderBinding binding;
+        public ViewHolder(@NonNull ItemOrderBinding itemView) {
             super(itemView.getRoot());
             this.binding = itemView;
         }
 
-        public void onBind(ModelM modelM) {
-            binding.productNameCard.setText(modelM.getTitle());
-            binding.priceCard.setText(String.valueOf(modelM.getPrice()));
-            binding.descriptionCard.setText(modelM.getDescription());
+        public void onBind(Order order) {
+            binding.productNameCard.setText(order.getNameProduct());
+            binding.priceCard.setText(String.valueOf(order.getPriceProduct()));
 
             Glide.with(context)
                     .load(list.get(getAdapterPosition()).getImage())
@@ -69,27 +69,27 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     .into(binding.imageCard);
 
             binding.btnZoom.setOnClickListener(v -> {
-                selectedList.add(modelM);
+                selectedList.add(order);
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("see more", selectedList);
                 navController = Navigation.findNavController((Activity) itemView.getContext(), R.id.nav_host);
-                navController.navigate(R.id., bundle);
+                navController.navigate(R.id.action_navigation_home_to_navigation_description, bundle);
                 Log.e("TAG", "pass data ! !");
             });
 
             itemView.setOnClickListener(v1 -> {
                 if (binding.itemFavCheck.getVisibility() == View.INVISIBLE) {
                     binding.itemFavCheck.setVisibility(View.VISIBLE);
-                    selectedList.add(modelM);
+                    selectedList.add(order);
                 } else {
                     binding.itemFavCheck.setVisibility(View.INVISIBLE);
-                    selectedList.remove(modelM);
+                    selectedList.remove(order);
                 }
             });
         }
     }
 
-    public ArrayList<ModelM> getSelectedList() {
+    public ArrayList<Order> getSelectedList() {
         return selectedList;
     }
 

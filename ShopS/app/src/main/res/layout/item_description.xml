@@ -21,7 +21,7 @@
                 android:layout_width="360dp"
                 android:layout_height="360dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/zipka"/>
+                android:src="@drawable/artsinstruments"/>
             <TextView
                 android:id="@+id/titleCard"
                 android:textColor="@color/green"

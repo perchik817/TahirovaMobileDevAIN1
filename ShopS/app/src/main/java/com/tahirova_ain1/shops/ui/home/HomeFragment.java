@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
         preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
         if(getArguments() != null) emailUserIdentify = getArguments().getString("identify");
         if(preferences.getBoolean("loggedin", true)){
-            binding.tvIdentify.setVisibillity(View.VISIBLE);
+            binding.tvIdentify.setVisibility(View.VISIBLE);
             binding.tvIdentify.setText(emailUserIdentify);
         }
 

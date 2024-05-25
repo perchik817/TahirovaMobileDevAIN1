@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_register"
             app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_description"
+            app:destination="@id/navigation_description" />
     </fragment>
 
     <fragment
@@ -47,6 +50,9 @@
         <action
             android:id="@+id/action_navigation_basket_to_payment"
             app:destination="@id/navigation_payment" />
+        <action
+            android:id="@+id/action_navigation_basket_to_navigation_description"
+            app:destination="@id/navigation_description" />
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
@@ -61,5 +67,12 @@
         android:id="@+id/navigation_description"
         android:name="com.tahirova_ain1.shops.ui.notifications.DescriptionFragment"
         android:label="fragment_description"
-        tools:layout="@layout/fragment_description" />
+        tools:layout="@layout/fragment_description" >
+        <action
+            android:id="@+id/action_navigation_description_to_navigation_basket"
+            app:destination="@id/navigation_basket" />
+        <action
+            android:id="@+id/action_navigation_description_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>
