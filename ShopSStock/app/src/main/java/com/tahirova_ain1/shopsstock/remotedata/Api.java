@@ -10,7 +10,7 @@ import retrofit2.http.GET;
 
 public interface Api {
     @GET("api/v1/user/all")
-    Call<List<User>> getAllUsers(String s);
+    Call<List<User>> getAllUsers();
     @GET("api/v1/order/all")
     Call<List<Order>> getAllOrders();
 }
