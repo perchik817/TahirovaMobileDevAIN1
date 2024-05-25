@@ -1,13 +1,16 @@
 package com.tahirova_ain1.shopsstock.remotedata;
 
-import com.tahirova_ain1.stock.constant.ConstantApi;
-
+import com.tahirova_ain1.shopsstock.constant.ConstantApi;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     private static RetrofitClient instance = null;
     private Api api;
+
+    private RetrofitClient() {
+        RetrofitBuilder();
+    }
 
     private void RetrofitBuilder() {
         Retrofit retrofit = new Retrofit
@@ -17,13 +20,15 @@ public class RetrofitClient {
                 .build();
         api = retrofit.create(Api.class);
     }
+
     public static synchronized RetrofitClient getInstance(){
-        if(instance==null){
+        if(instance == null){
             instance = new RetrofitClient();
         }
         return instance;
     }
+
     public Api getApi(){
-        return null;
+        return api;
     }
 }
