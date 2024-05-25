@@ -48,8 +48,8 @@ public class RegisterFragment extends Fragment {
             if(!isEmptyEditTextReg()) registerToTable();
         });
         binding.tvLoginNow.setOnClickListener(v1 -> {
-            navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-            navController.navigate(R.id.action_navigation_registr_to_navigation_login);
+            navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
+            navController.navigate(R.id.action_navigation_register_to_navigation_login);
         });
     }
 
@@ -64,13 +64,13 @@ public class RegisterFragment extends Fragment {
                 if(response.isSuccessful() && response.body() != null){
                     binding.progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(requireActivity(), "Registration was successful", Toast.LENGTH_SHORT).show();
-                    SharedPreferences preferences = getActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
                     SharedPreferences.Editor prefLoginEdit = preferences.edit();
                     prefLoginEdit.putBoolean("registration", true);
                     prefLoginEdit.commit();
                 } else {
                     Log.e("fail", "fail");
-                    Toast.makeText(requireActivity(), "Registration is not available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireActivity(), "Registration is not available now", Toast.LENGTH_SHORT).show();
                 }
             }
 

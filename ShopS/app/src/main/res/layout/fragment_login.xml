@@ -10,10 +10,10 @@
     tools:context=".reg.LoginFragment">
 
     <TextView
-        android:id="@+id/tv_login"
+        android:id="@+id/tvLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registration"
+        android:text="Login"
         android:textAlignment="center"
         android:textColor="@color/dark_blue"
         android:textStyle="bold"
@@ -31,7 +31,6 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:backgroundTint="@color/smoke_violet"
             android:textColorHint="@color/white"
             android:hint="Email"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -61,14 +60,14 @@
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:backgroundTint="@color/smoke_blue"
+        android:backgroundTint="@color/dark_blue"
         android:text="Register account"/>
     <TextView
-        android:id="@+id/register_now"
+        android:id="@+id/btnReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Have an account? Log in now"
+        android:textColor="@color/red"
+        android:text="Still don't have an account? Register now!"
         android:textAlignment="center"/>
 
 

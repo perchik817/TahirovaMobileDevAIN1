@@ -8,15 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.tahirova_ain1.shops.databinding.ItemDescriptionBinding;
 import com.tahirova_ain1.shops.models.ModelM;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
-     binding;
+      ItemDescriptionBinding binding;
     Context context;
-    List<ModelM> listD = new ArrayList<>();
+    List<ModelM> listD;
 
     public DescAdapter(Context context, List<ModelM> listD) {
         this.context = context;
@@ -30,7 +32,7 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = ItemDescBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        binding = ItemDescriptionBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
@@ -45,17 +47,17 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull ItemDescBinding itemView) {
+        ItemDescriptionBinding binding;
+        public ViewHolder(@NonNull ItemDescriptionBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
         }
 
         public void onBind(ModelM modelM) {
-            binding.nameCard.setText(modelM.getModelTitle());
-            binding.priceCard.setText(String.valueOf(modelM.getModelPrice()));
-            binding.descriptionCard.setText(modelM.getModelDescription());
-            // Для изображения возможно потребуется загрузка с помощью Glide или другой библиотеки
-            Glide.with(itemView.getContext()).load(modelM.getModelImage()).into(binding.imageCard);
+            binding.titleCard.setText(modelM.getTitle());
+            binding.priceCard.setText(String.valueOf(modelM.getPrice()));
+            binding.descriptionCard.setText(modelM.getDescription());
+            Glide.with(itemView.getContext()).load(modelM.getImage()).into(binding.imageCard);
         }
     }
 }

@@ -55,7 +55,7 @@ public class LoginFragment extends Fragment {
         });
         binding.btnReg.setOnClickListener(v2 -> {
             navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
-            navController.navigate(R.id.login_to_register);
+            navController.navigate(R.id.action_navigation_login_to_navigation_register);
         });
     }
 
@@ -66,10 +66,14 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                     if(response.isSuccessful() && response.body() != null){
-                        emailUserIdentify = binding.email.getText().toString();
+
                         String tokenN = response.body().getAccessToken();
+                        emailUserIdentify = binding.email.getText().toString();
+
                         Bundle bundle = new Bundle();
                         bundle.putString("identify", emailUserIdentify);
+                        Bundle bundleToken = new Bundle();
+                        bundleToken.putString("key_token", tokenN);
                         try {
                             SharedPreferences preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor prefLoginEdit = preferences.edit();
@@ -78,7 +82,7 @@ public class LoginFragment extends Fragment {
                             prefLoginEdit.commit();
                             navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
                             navController.navigate(R.id.action_navigation_login_to_navigation_home);
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             Log.d("API", "Token error" + e.getLocalizedMessage());
                         }
                     }

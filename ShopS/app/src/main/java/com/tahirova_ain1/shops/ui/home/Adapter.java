@@ -28,6 +28,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     NavController navController;
     ArrayList<ModelM> descriptionList = new ArrayList<>();
     ArrayList<ModelM> selectedList = new ArrayList<>();
+
+    public void setList(List<ModelM> list) {
+        this.list = list;
+    }
+
     @NonNull
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -67,8 +72,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 selectedList.add(modelM);
                 Bundle bundle = new Bundle();
                 bundle.putParcelableArrayList("see more", selectedList);
-                navController = Navigation.findNavController((Activity) itemView.getContext(), R.id.nav_host_fragment_activity_main);
-                navController.navigate(R.id.navigation_description, bundle);
+                navController = Navigation.findNavController((Activity) itemView.getContext(), R.id.nav_host);
+                navController.navigate(R.id., bundle);
                 Log.e("TAG", "pass data ! !");
             });
 

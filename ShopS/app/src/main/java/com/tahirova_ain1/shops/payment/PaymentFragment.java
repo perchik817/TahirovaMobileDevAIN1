@@ -39,7 +39,7 @@ public class PaymentFragment extends Fragment {
         binding = FragmentPaymentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE); //init кэш-память
 
         if(getArguments() != null) payedList = getArguments().getParcelableArrayList("payed");
 
@@ -49,7 +49,7 @@ public class PaymentFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.btnBack.setOnClickListener(v5 -> navController.navigate(R.id.action_navigation_basket_to_navigation_home));
+        binding.btnBack.setOnClickListener(v1 -> navController.navigate(R.id.action_navigation_payment_to_navigation_home));
 
         binding.btnFinallyPay.setOnClickListener(v2 -> {
             binding.progressBar.setVisibility(View.VISIBLE);
@@ -66,12 +66,14 @@ public class PaymentFragment extends Fragment {
                                 prefPayed.putBoolean("Order", true);
                                 prefPayed.commit();
                                 binding.tvAnswer.setText("Your order will be in 5 days");
+                            } else {
+                                Toast.makeText(requireActivity(), "Order is not available now", Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<Order> call, Throwable throwable) {
-                            Toast.makeText(requireActivity(), "Order is not available", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(requireActivity(), "Order is not available now", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

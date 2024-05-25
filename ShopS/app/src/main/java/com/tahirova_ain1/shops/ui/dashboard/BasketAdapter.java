@@ -19,8 +19,7 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
     Context context;
     ArrayList<ModelM> nnList;
 
-    public BasketAdapter(ItemOrderBinding binding, Context context, ArrayList<ModelM> nnList) {
-        this.binding = binding;
+    public BasketAdapter(Context context, ArrayList<ModelM> nnList) {
         this.context = context;
         this.nnList = nnList;
     }
@@ -55,20 +54,20 @@ public class BasketAdapter extends RecyclerView.Adapter<BasketAdapter.ViewHolder
                     .error(R.drawable.ic_launcher_background)
                     .into(binding.imageCard);
 
-            final int[] pp = {Integer.parseInt(binding.prodCounter.getText().toString())};
-
-            binding.btnIncrement.setOnClickListener(v1 -> {
-                binding.prodCounter.setText(String.valueOf(pp[0]++));
-                int[] cb = new int[]{modelM.getCounterProduct()};
-                cb = pp;
-            });
-
-            binding.btnDecrement.setOnClickListener(v2 -> {
-                if (pp[0] > 2) binding.prodCounter.setText(String.valueOf(pp[0]--));
-                else binding.prodCounter.setText("1");
-                int[] cb = new int[]{modelM.getCounterProduct()};
-                cb = pp;
-            });
+//            final int[] pp = {Integer.parseInt(binding.prodCounter.getText().toString())};
+//
+//            binding.btnIncrement.setOnClickListener(v1 -> {
+//                binding.prodCounter.setText(String.valueOf(pp[0]++));
+//                int[] cb = new int[]{modelM.getCounterProduct()};
+//                cb = pp;
+//            });
+//
+//            binding.btnDecrement.setOnClickListener(v2 -> {
+//                if (pp[0] > 2) binding.prodCounter.setText(String.valueOf(pp[0]--));
+//                else binding.prodCounter.setText("1");
+//                int[] cb = new int[]{modelM.getCounterProduct()};
+//                cb = pp;
+//            });
         }
     }
 

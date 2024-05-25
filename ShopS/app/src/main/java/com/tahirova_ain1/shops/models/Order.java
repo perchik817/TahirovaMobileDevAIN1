@@ -27,7 +27,7 @@ public class Order implements Parcelable, Serializable {
     @Expose
     String priceProduct;
 
-    @SerializedName("counterProduct")
+    @SerializedName("counter_product")
     @Expose
     int productCount;
 
