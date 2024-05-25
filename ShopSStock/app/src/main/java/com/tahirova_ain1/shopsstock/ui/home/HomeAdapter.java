@@ -14,9 +14,9 @@ import com.tahirova_ain1.shopsstock.models.Order;
 import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
-    ItemOrderStockBinding binding;
-    Context context;
-    ArrayList<Order> list;
+    private ItemOrderStockBinding binding;
+    private final Context context;
+    private final ArrayList<Order> list;
 
     public HomeAdapter(Context context, ArrayList<Order> list) {
         this.context = context;
@@ -40,18 +40,20 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ItemOrderStockBinding binding;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private final ItemOrderStockBinding binding;
+
         public ViewHolder(@NonNull ItemOrderStockBinding itemView) {
             super(itemView.getRoot());
             this.binding = itemView;
         }
-        public void onBind(Order order){
-            binding.nameUser.setText(order.getNameUser());
-            binding.nameProductCard.setText(order.getNameProduct());
-            binding.priceCard.setText(order.getPriceProduct());
-            binding.addressUser.setText(order.getAddressUser());
-            binding.productsCounter.setText(order.getProductCount());
+
+        public void onBind(Order order) {
+            binding.nameUser.setText(order.getNameUser() != null ? order.getNameUser() : "");
+            binding.nameProductCard.setText(order.getNameProduct() != null ? order.getNameProduct() : "");
+            binding.priceCard.setText(order.getPriceProduct() != null ? order.getPriceProduct().toString() : "");
+            binding.addressUser.setText(order.getAddressUser() != null ? order.getAddressUser() : "");
+            binding.productsCounter.setText(String.valueOf(order.getProductCount()));
             Picasso.get().load(order.getImage()).into(binding.imageCard);
         }
     }

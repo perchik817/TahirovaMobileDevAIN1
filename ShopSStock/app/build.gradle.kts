@@ -60,7 +60,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.6")
     // Okhttp
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
-
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation ("com.squareup.picasso:picasso:2.71828")
 
 }

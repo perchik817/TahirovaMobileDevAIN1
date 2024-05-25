@@ -13,9 +13,8 @@ import com.tahirova_ain1.shopsstock.models.User;
 import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
-    ItemUserStockBinding binding;
-    Context context;
-    ArrayList<User> list;
+    private final Context context;
+    private final ArrayList<User> list;
 
     public UserAdapter(Context context, ArrayList<User> list) {
         this.context = context;
@@ -25,7 +24,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        binding = ItemUserStockBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        ItemUserStockBinding binding = ItemUserStockBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
 
@@ -36,19 +35,20 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ItemUserStockBinding binding;
+        private final ItemUserStockBinding binding;
+
         public ViewHolder(@NonNull ItemUserStockBinding itemView) {
             super(itemView.getRoot());
             this.binding = itemView;
         }
 
         public void onBind(User user) {
-            binding.nameUser.setText(user.getName());
-            binding.emailUser.setText(user.getEmail());
+            binding.nameUser.setText(user.getName() != null ? user.getName() : "No Name");
+            binding.emailUser.setText(user.getEmail() != null ? user.getEmail() : "No Email");
         }
     }
 }

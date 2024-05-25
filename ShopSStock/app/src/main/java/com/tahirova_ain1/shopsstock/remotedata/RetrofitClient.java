@@ -13,8 +13,7 @@ public class RetrofitClient {
     }
 
     private void RetrofitBuilder() {
-        Retrofit retrofit = new Retrofit
-                .Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ConstantApi.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

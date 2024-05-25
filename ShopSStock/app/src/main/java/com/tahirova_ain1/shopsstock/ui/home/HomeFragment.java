@@ -1,6 +1,7 @@
 package com.tahirova_ain1.shopsstock.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +24,10 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-    HomeAdapter adapter;
+    private HomeAdapter adapter;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -35,18 +35,27 @@ public class HomeFragment extends Fragment {
         apiCall.enqueue(new Callback<List<Order>>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
-                if(response.isSuccessful() && response.body() != null){
-                    ArrayList<Order> list = (ArrayList<Order>) response.body();
-                    adapter = new HomeAdapter(requireActivity(), list);
-                    binding.rvMainListOrders.setAdapter(adapter);
+                if (response.isSuccessful() && response.body() != null) {
+                    ArrayList<Order> list = new ArrayList<>(response.body());
+                    if (list.isEmpty()) {
+                        Toast.makeText(requireActivity(), "No orders available", Toast.LENGTH_SHORT).show();
+                    } else {
+                        adapter = new HomeAdapter(requireActivity(), list);
+                        binding.rvMainListOrders.setAdapter(adapter);
+                    }
+                } else {
+                    Toast.makeText(requireActivity(), "Failed to get data", Toast.LENGTH_SHORT).show();
+                    Log.e("API_RESPONSE_ERROR", "Response code: " + response.code() + ", message: " + response.message());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Order>> call, Throwable throwable) {
-                Toast.makeText(requireActivity(), "No data", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call<List<Order>> call, Throwable t) {
+                Toast.makeText(requireActivity(), "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                Log.e("API_CALL_FAILURE", t.getMessage(), t);
             }
         });
+
         return root;
     }
 
