@@ -11,6 +11,11 @@
         android:icon="@drawable/basket_cart_nav"
         android:title= "Basket"/>
 
+    <item
+        android:id="@+id/navigation_payment"
+        android:icon="@drawable/credit_card_cash"
+        android:title="Payment" />
+
 
 
 </menu>

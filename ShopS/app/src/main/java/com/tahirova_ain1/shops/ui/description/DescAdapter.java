@@ -1,4 +1,4 @@
-package com.tahirova_ain1.shops.ui.notifications;
+package com.tahirova_ain1.shops.ui.description;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.tahirova_ain1.shops.R;
 import com.tahirova_ain1.shops.databinding.ItemDescriptionBinding;
 import com.tahirova_ain1.shops.models.ModelM;
 
@@ -15,7 +16,7 @@ import java.util.List;
 
 public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
 
-      ItemDescriptionBinding binding;
+    ItemDescriptionBinding binding;
     Context context;
     List<ModelM> listD;
 
@@ -56,7 +57,10 @@ public class DescAdapter extends RecyclerView.Adapter<DescAdapter.ViewHolder> {
             binding.titleCard.setText(modelM.getTitle());
             binding.priceCard.setText(String.valueOf(modelM.getPrice()));
             binding.descriptionCard.setText(modelM.getDescription());
-            Glide.with(itemView.getContext()).load(modelM.getImage()).into(binding.imageCard);
+            Glide.with(itemView.getContext()).load(listD.get(getAdapterPosition()).getImage())
+                    .placeholder(R.drawable.placeholder_image)
+                    .error(R.drawable.error)
+                    .into(binding.imageCard);
         }
     }
 }

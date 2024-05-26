@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_description"
-        android:name="com.tahirova_ain1.shops.ui.notifications.DescriptionFragment"
+        android:name="com.tahirova_ain1.shops.ui.description.DescriptionFragment"
         android:label="fragment_description"
         tools:layout="@layout/fragment_description" >
         <action
