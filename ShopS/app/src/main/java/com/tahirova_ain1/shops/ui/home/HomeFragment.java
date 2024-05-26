@@ -74,6 +74,7 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(requireActivity(), "No data", Toast.LENGTH_SHORT).show();
             }
         });
+        setUpOnBackPressed();
         return root;
     }
 
@@ -105,7 +106,8 @@ public class HomeFragment extends Fragment {
             });
             popupMenu.show();
         });
-        binding.signIn.setOnClickListener(v3 -> {
+        binding.signInSignOut.setOnClickListener(v1->{
+            navController=Navigation.findNavController(requireActivity(),R.id.nav_host);
             navController.navigate(R.id.action_navigation_home_to_navigation_register);
         });
     }
