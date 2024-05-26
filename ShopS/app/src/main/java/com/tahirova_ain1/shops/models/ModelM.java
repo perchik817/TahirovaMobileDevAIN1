@@ -3,8 +3,6 @@ package com.tahirova_ain1.shops.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -30,17 +28,13 @@ public class ModelM implements Parcelable, Serializable {
     @SerializedName("price")
     @Expose
     Double price;
-    @SerializedName("counterProduct")
-    @Expose
-    int counterProduct;
 
-    public ModelM(int id, String title, String description, String image, Double price, int counterProduct) {
+    public ModelM(int id, String title, String description, String image, Double price) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
         this.price = price;
-        this.counterProduct = counterProduct;
     }
 
     protected ModelM(Parcel in) {
@@ -53,7 +47,6 @@ public class ModelM implements Parcelable, Serializable {
         } else {
             price = in.readDouble();
         }
-        counterProduct = in.readInt();
     }
 
     @Override
@@ -68,7 +61,6 @@ public class ModelM implements Parcelable, Serializable {
             dest.writeByte((byte) 1);
             dest.writeDouble(price);
         }
-        dest.writeInt(counterProduct);
     }
 
     @Override
@@ -92,47 +84,19 @@ public class ModelM implements Parcelable, Serializable {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public Double getPrice() {
         return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public int getCounterProduct() {
-        return counterProduct;
-    }
-
-    public void setCounterProduct(int counterProduct) {
-        this.counterProduct = counterProduct;
     }
 }
