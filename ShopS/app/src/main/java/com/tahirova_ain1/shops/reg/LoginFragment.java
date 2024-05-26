@@ -50,8 +50,10 @@ public class LoginFragment extends Fragment {
                         binding.passwd.getText().toString()));
             }
         });
+
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
+
         binding.btnReg.setOnClickListener(v1->{
-            navController=Navigation.findNavController(requireActivity(),R.id.nav_host);
             navController.navigate(R.id.action_navigation_login_to_navigation_register);
         });
     }
@@ -63,28 +65,13 @@ public class LoginFragment extends Fragment {
                 @Override
                 public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                     if (response.isSuccessful() && response.body() != null) {
-
                         String tokenN = response.body().getAccessToken();
 
-                        emailUserIdentify = binding.email.getText().toString();
+                        saveUserCredentials(tokenN, binding.email.getText().toString());
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("identify", emailUserIdentify);
-
-                        try {
-                            SharedPreferences preferences = getActivity()
-                                    .getSharedPreferences("prefs", Context.MODE_PRIVATE);
-                            SharedPreferences.Editor prefLoginEdit = preferences.edit();
-                            prefLoginEdit.putBoolean("loggedin", true);
-                            prefLoginEdit.putString("token", tokenN);
-                            prefLoginEdit.commit();
-
-                            navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
-                            navController.navigate(R.id.action_navigation_login_to_navigation_home, bundle);
-                        } catch (Exception e) {
-                            Log.d("API", String.format("Token  error: %s", e.toString()));
-
-                        }
+                        bundle.putString("identify", binding.email.getText().toString());
+                        navController.navigate(R.id.action_navigation_login_to_navigation_home, bundle);
                     }
                 }
                 @Override
@@ -92,11 +79,26 @@ public class LoginFragment extends Fragment {
                     Log.e("API",throwable.toString());
                 }
             });
-        }catch (Exception e){
+        } catch (Exception e) {
             Log.d("API",e.toString());
             Toast.makeText(requireActivity(),e.toString(),Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void saveUserCredentials(String token, String email) {
+        try {
+            SharedPreferences preferences = getActivity()
+                    .getSharedPreferences("prefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor prefLoginEdit = preferences.edit();
+            prefLoginEdit.putBoolean("loggedin", true);
+            prefLoginEdit.putString("token", token);
+            prefLoginEdit.putString("email", email);
+            prefLoginEdit.apply();
+        } catch (Exception e) {
+            Log.d("API", String.format("Token  error: %s", e.toString()));
+        }
+    }
+
 
     private boolean IsEmptyEditTextLogin(){
         if(binding.email.getText().toString().isEmpty() ||

@@ -48,9 +48,12 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         //remember user
+        // Загрузка данных пользователя из SharedPreferences
         preferences = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
-        if(getArguments() != null) emailUserIdentify = getArguments().getString("identify");
-        if(preferences.getBoolean("loggedin", true)){
+        emailUserIdentify = preferences.getString("email", null);
+
+        // Отображение данных пользователя в tvIdentify
+        if (emailUserIdentify != null && !emailUserIdentify.isEmpty()) {
             binding.tvIdentify.setVisibility(View.VISIBLE);
             binding.tvIdentify.setText(emailUserIdentify);
         }
