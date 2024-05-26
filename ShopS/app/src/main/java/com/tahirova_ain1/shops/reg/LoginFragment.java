@@ -50,7 +50,8 @@ public class LoginFragment extends Fragment {
         binding.btnLogin.setOnClickListener(v -> {
             binding.progressBar.setVisibility(View.VISIBLE);
             if (!isEmptyLoginEditText()) {
-                loginUser(new CurrentUser(binding.email.getText().toString(), binding.passwd.getText().toString()));
+                loginUser(new CurrentUser(binding.email.getText().toString(),
+                        binding.passwd.getText().toString()));
             }
         });
         binding.btnReg.setOnClickListener(v2 -> {

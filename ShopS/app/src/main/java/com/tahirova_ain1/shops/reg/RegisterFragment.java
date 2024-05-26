@@ -84,7 +84,7 @@ public class RegisterFragment extends Fragment {
 
     private boolean isEmptyEditTextReg() {
         if(binding.nameUser.getText().toString().isEmpty() || binding.email.getText().toString().isEmpty() || binding.passwd.getText().toString().isEmpty()){
-            Toast toast = Toast.makeText(getActivity(), "Fill all field", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getActivity(), "Fill all fields to reg", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
             return  true;

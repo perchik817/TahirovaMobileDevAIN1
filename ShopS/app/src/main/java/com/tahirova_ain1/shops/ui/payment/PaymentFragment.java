@@ -1,4 +1,4 @@
-package com.tahirova_ain1.shops.payment;
+package com.tahirova_ain1.shops.ui.payment;
 
 import android.content.Context;
 import android.content.SharedPreferences;

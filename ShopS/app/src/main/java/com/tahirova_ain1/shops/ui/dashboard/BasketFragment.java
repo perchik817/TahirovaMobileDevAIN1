@@ -97,10 +97,14 @@ public class BasketFragment extends Fragment {
                        "\nOrder after payment " +
                        "\nyour order:" +
                        "\nname" + orders.get(orders.size() - 1).getNameUser() +
+                       "\naddress" + orders.get(orders.size() - 1).getAddressUser() +
+                       "\nitem" + orders.get(orders.size() - 1).getNameProduct() +
+                       "\nprice" + orders.get(orders.size() - 1).getPriceProduct() +
                        "\ncount: " + binding.placeCounter.getText().toString());
            } catch (NullPointerException e){
                binding.btnPay.setVisibility(View.INVISIBLE);
-               binding.tvAnswer.setText("you haven't choose any items, so to make order, please, go back to catalog and make order");
+               binding.tvAnswer.setText("you haven't selected products, so to place an order, " +
+                       "please, go back to catalog page and choose items to order");
            }
 
            if(!(binding.tvAnswer.getText().toString().isEmpty())){

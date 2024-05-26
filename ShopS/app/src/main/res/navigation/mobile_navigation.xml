@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
-        android:name="com.tahirova_ain1.shops.payment.PaymentFragment"
+        android:name="com.tahirova_ain1.shops.ui.payment.PaymentFragment"
         android:label="fragment_payment"
         tools:layout="@layout/fragment_payment" >
         <action
