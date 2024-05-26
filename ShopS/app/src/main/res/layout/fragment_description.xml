@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <ImageButton
-                android:id="@+id/btn_back"
+                android:id="@+id/btnBack"
                 android:layout_width="29dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="6dp"
@@ -27,7 +27,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_description"
+                android:id="@+id/rvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
