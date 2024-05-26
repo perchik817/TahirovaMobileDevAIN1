@@ -27,15 +27,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     Context context;
     List<ModelM> list;
     NavController navController;
-    ArrayList<ModelM> setList=new ArrayList<>();
+    ArrayList<ModelM> setList;
     ArrayList<ModelM> selectedList = new ArrayList<>();
     ArrayList<ModelM> selectedIntoBasketList = new ArrayList<>();
 
     public Adapter(Context context, List<ModelM> list) {
         this.context = context;
         this.list = list;
+        setList = new ArrayList<>();
     }
-    public Adapter() { }
+    public Adapter() {
+        setList = new ArrayList<>();
+    }
 
     public ArrayList<ModelM> getSelectedIntoBasketList() {
         return selectedIntoBasketList;
@@ -73,8 +76,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             binding.productNameCard.setText(modelM.getTitle());
             binding.priceCard.setText(String.valueOf(modelM.getPrice()));
             binding.descriptionCard.setText(modelM.getDescription());
-
             Picasso.get().load(modelM.getImage()).into(binding.imageCard);
+
             binding.btnZoom.setOnClickListener(v -> {
                 selectedList.add(modelM);
                 Bundle bundle = new Bundle();

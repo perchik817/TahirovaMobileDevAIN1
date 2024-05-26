@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_basket"
-        android:name="com.tahirova_ain1.shops.ui.dashboard.BasketFragment"
+        android:name="com.tahirova_ain1.shops.ui.basket.BasketFragment"
         android:label="fragment_basket"
         tools:layout="@layout/fragment_basket" >
         <action
@@ -50,9 +50,6 @@
         <action
             android:id="@+id/action_navigation_basket_to_payment"
             app:destination="@id/navigation_payment" />
-        <action
-            android:id="@+id/action_navigation_basket_to_navigation_description"
-            app:destination="@id/navigation_description" />
     </fragment>
     <fragment
         android:id="@+id/navigation_payment"
@@ -68,9 +65,6 @@
         android:name="com.tahirova_ain1.shops.ui.description.DescriptionFragment"
         android:label="fragment_description"
         tools:layout="@layout/fragment_description" >
-        <action
-            android:id="@+id/action_navigation_description_to_navigation_basket"
-            app:destination="@id/navigation_basket" />
         <action
             android:id="@+id/action_navigation_description_to_navigation_home"
             app:destination="@id/navigation_home" />

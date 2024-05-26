@@ -7,7 +7,7 @@
     android:padding="12dp"
     android:orientation="vertical"
     android:background="@color/smoke_white"
-    tools:context=".ui.dashboard.BasketFragment">
+    tools:context=".ui.basket.BasketFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -61,12 +61,13 @@
                 app:boxCornerRadiusTopEnd="14dp"
                 app:boxCornerRadiusTopStart="14dp"
                 app:boxCornerRadiusBottomEnd="14dp"
+                android:textColorHint="@color/gray"
                 android:gravity="center">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editUserName"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray"
                     android:hint="Name"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
@@ -77,12 +78,13 @@
                 app:boxCornerRadiusTopEnd="14dp"
                 app:boxCornerRadiusTopStart="14dp"
                 app:boxCornerRadiusBottomEnd="14dp"
+                android:textColorHint="@color/gray"
                 android:gravity="center">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editUserAddress"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/gray"
                     android:hint="Address for delivery"/>
             </com.google.android.material.textfield.TextInputLayout>
             <LinearLayout
@@ -94,14 +96,15 @@
                     android:layout_height="wrap_content"
                     android:textColorHint="@color/gray"
                     android:layout_marginStart="10dp"
-                    android:textSize="16sp"
-                    android:layout_gravity="center_horizontal"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical"
                     android:hint="Item's count"/>
                 <EditText
                     android:id="@+id/placeCounter"
-                    android:layout_width="40dp"
-                    android:layout_height="20dp"
+                    android:layout_width="60dp"
+                    android:layout_height="34dp"
                     android:layout_marginLeft="10dp"
+                    android:textSize="15sp"
                     android:textColor="@color/gray"
                     android:background="@color/white"/>
             </LinearLayout>

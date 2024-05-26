@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -44,6 +45,7 @@ public class DescriptionFragment extends Fragment {
         adapter = new DescAdapter(requireActivity(), dList);
         binding.rvDescription.setAdapter(adapter);
 
+        setUpOnBackPressed();
         return root;
     }
 
@@ -53,6 +55,17 @@ public class DescriptionFragment extends Fragment {
         binding.btnBack.setOnClickListener(v -> {
             navController = Navigation.findNavController(requireActivity(), R.id.nav_host);
             navController.navigate(R.id.action_navigation_description_to_navigation_home);
+        });
+    }
+
+    private void setUpOnBackPressed() {
+        requireActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (isEnabled()) {
+                    requireActivity().finish();
+                }
+            }
         });
     }
 

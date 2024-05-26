@@ -1,4 +1,4 @@
-package com.tahirova_ain1.shops.ui.dashboard;
+package com.tahirova_ain1.shops.ui.basket;
 
 import androidx.lifecycle.ViewModel;
 

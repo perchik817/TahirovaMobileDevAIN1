@@ -2,18 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.payment.PaymentFragment"
     android:padding="10dp"
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/btn_back"
+        android:id="@+id/btnBack"
         android:layout_width="29dp"
         android:layout_height="24dp"
         android:layout_marginStart="6dp"
-        android:background="@drawable/baseline_arrow_back_ios_new_24"
+        android:background="@drawable/baseline_keyboard_backspace_24"
         android:contentDescription="Back"
         tools:ignore="TouchTargetSizeCheck" />
     <TextView
@@ -22,16 +22,17 @@
         android:textAlignment="center"
         android:textSize="32sp"
         android:layout_marginTop="30dp"
-        android:textColor="@color/green"
+        android:textColor="@color/dark_blue"
         android:textStyle="bold"
         android:text="Payments ways:"
         />
     <androidx.cardview.widget.CardView
-        android:id="@+id/visa_mastercard"
+        android:id="@+id/visaMastercard"
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/smoke_white"
         app:cardCornerRadius="26dp">
         <ImageView
             android:layout_width="match_parent"
@@ -44,21 +45,25 @@
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/smoke_white"
         app:cardCornerRadius="26dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:padding="10dp"
             android:src="@drawable/paypal"/>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_mbank"
+        android:id="@+id/cardMbank"
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/smoke_white"
         app:cardCornerRadius="26dp">
         <ImageView
             android:layout_width="match_parent"
+            android:padding="10dp"
             android:layout_height="80dp"
             android:src="@drawable/mbank"/>
     </androidx.cardview.widget.CardView>
@@ -68,30 +73,37 @@
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/smoke_white"
         app:cardCornerRadius="26dp">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
+            android:padding="10dp"
             android:src="@drawable/o"/>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_finally_pay"
+        android:id="@+id/btnFinallyPay"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="52dp"
         app:cornerRadius="26dp"
-        android:backgroundTint="@color/cardview_shadow_end_color"
+        android:backgroundTint="@color/dark_blue"
         android:textAlignment="center"
-        android:text="pay"
-        android:textAllCaps="false"/>
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:text="pay"/>
     <ProgressBar
-        android:id="@+id/progress_bar"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="invisible"/>
+        android:visibility="gone"
+        android:layout_gravity="center"/>
     <TextView
-        android:id="@+id/tv_answer"
+        android:id="@+id/tvAnswer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/gray"/>
 </LinearLayout>
