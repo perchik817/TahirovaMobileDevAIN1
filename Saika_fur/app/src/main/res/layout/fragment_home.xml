@@ -15,6 +15,7 @@
        android:layout_height="240dp"
        android:layout_marginTop="18dp"
        app:lottie_autoPlay="true"
+       app:lottie_loop="true"
       />
 
    <androidx.recyclerview.widget.RecyclerView

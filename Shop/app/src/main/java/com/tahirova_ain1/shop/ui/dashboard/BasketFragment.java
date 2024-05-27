@@ -1,11 +1,9 @@
 package com.tahirova_ain1.shop.ui.dashboard;
 
 import android.os.Bundle;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

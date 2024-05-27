@@ -51,8 +51,6 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.google.code.gson:gson:2.8.6")
 
-
-
     //расширение возможностей фрагмента:
     implementation("androidx.fragment:fragment:1.6.2")
     //Glide передача  картинки и работа с ней:

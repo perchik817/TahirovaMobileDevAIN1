@@ -22,9 +22,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple"
+        android:textColor="@color/light_orange"
         android:fontFamily="@font/caviar_dreams_bold"
-        android:text="Just do it"
+        android:text="Welcome"
         />
     <TextView
         android:id="@+id/category"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple"
+        android:textColor="@color/corn_flower_blue"
         android:text="Category"
         />
 
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple"
+        android:textColor="@color/corn_flower_blue"
         android:text="Price for one person"
         />
     <TextView
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple"
+        android:textColor="@color/corn_flower_blue"
         android:text="Link"
         />
     <TextView
@@ -88,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/purple"
+        android:textColor="@color/corn_flower_blue"
         android:text="Participants"
         />
 
@@ -101,13 +101,13 @@
             android:id="@+id/btn_go"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_horizontal"
-            android:layout_width="200dp"
+            android:layout_width="160dp"
             android:layout_marginLeft="70dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/light_orange"
+            android:backgroundTint="@color/corn_flower_blue"
             android:text="What can i do today?"
             android:textAlignment="center"
-            android:padding="8dp"
+            android:padding="5dp"
             android:textSize="16sp"
             android:textColor="@color/white"
             android:fontFamily="@font/caviar_dreams_bold"/>
